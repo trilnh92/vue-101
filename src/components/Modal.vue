@@ -1,25 +1,28 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 defineProps({
   msg: String,
-  name: String
-})
+  name: String,
+});
 
-// const name = ref("active");
+const className = ref(false);
+const input = ref(null);
 
 function handleClick() {
-    console.log(this.$refs.name);
-    this.$refs.name.classList.add('active');
+  className.value = !className.value;
+  input.value.focus();
 }
-
 </script>
 
 <template>
-<h1>{{ msg }}</h1>
-<input type="text" ref="name" />
-<button @click="handleClick">Click Me</button>
+  <h1>{{ msg }}</h1>
+  <input type="text" ref="input" :class="className ? 'active' : ''" />
+  <button @click="handleClick">Click Me</button>
 </template>
 
 <style scoped>
+input.active {
+  border: 3px solid red;
+}
 </style>
