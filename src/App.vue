@@ -1,6 +1,7 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import Modal from './components/Modal.vue'
+// import HelloWorld from "./components/HelloWorld.vue";
+import Modal from "./components/Modal.vue";
+import ToDoList from "./components/ToDoList.vue";
 </script>
 
 <template>
@@ -13,8 +14,9 @@ import Modal from './components/Modal.vue'
     </a>
   </div> -->
   <!-- <HelloWorld msg="Vite + Vue" /> -->
-  
-  <Modal />
+
+  <!-- <Modal /> -->
+  <ToDoList />
 </template>
 
 <style scoped>
