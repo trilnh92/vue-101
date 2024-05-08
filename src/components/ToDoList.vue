@@ -1,25 +1,32 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 // give each todo a uniqure id
 let id = 0;
 
+const hideCompleted = ref(false);
+
 const newTodo = ref("");
 const todos = ref([
-  { id: id++, text: "ABC" },
-  { id: id++, text: "DEF" },
-  { id: id++, text: "GHI" },
-  { id: id++, text: "JKL" },
+  { id: id++, text: "ABC", done: false },
+  { id: id++, text: "DEF", done: true },
+  { id: id++, text: "GHI", done: false },
+  { id: id++, text: "JKL", done: false },
 ]);
 
+const filteredTodos = computed(() => {
+  return hideCompleted.value ? todos.value.filter((t) => !t.done) : todos.value;
+});
+
 function addTodo() {
-  todos.value.push({ id: id++, text: newTodo.value });
+  todos.value.push({ id: id++, text: newTodo.value, done: false });
   newTodo.value = "";
 }
 
 function removeTodo(todo) {
   todos.value = todos.value.filter((t) => t !== todo);
 }
+
 </script>
 
 <template>
@@ -29,11 +36,17 @@ function removeTodo(todo) {
     <button class="add">Add Todo</button>
   </form>
   <ul>
-    <li v-for="todo in todos" :key="todo.id">
-      <span>{{ todo.text }}</span>
+    <li v-for="todo in filteredTodos" :key="todo.id">
+      <input type="checkbox" v-model="todo.done" />
+      <span :class="{ done: todo.done }">{{ todo.text }}</span>
       <button @click="removeTodo(todo)" class="remove">X</button>
     </li>
   </ul>
+  <section>
+    <button @click="hideCompleted = !hideCompleted">
+      {{ hideCompleted ? "Show all" : "Hide completed" }}
+    </button>
+  </section>
 </template>
 
 <style scoped>
@@ -70,5 +83,8 @@ button.add {
 button.remove {
   background-color: red;
   border-radius: 30px;
+}
+.done {
+  text-decoration: line-through;
 }
 </style>
