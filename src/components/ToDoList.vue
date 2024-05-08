@@ -26,9 +26,8 @@ function addTodo() {
 function removeTodo(todo) {
   todos.value = todos.value.filter((t) => t !== todo);
 }
-
 </script>
-
+https://vuejs.org/tutorial/#step-9
 <template>
   <h1>To Do List</h1>
   <form @submit.prevent="addTodo">
