@@ -1,7 +1,8 @@
 <script setup>
 // import HelloWorld from "./components/HelloWorld.vue";
-import Modal from "./components/Modal.vue";
-import ToDoList from "./components/ToDoList.vue";
+// import Modal from "./components/Modal.vue";
+// import ToDoList from "./components/ToDoList.vue"; 
+import ReactionTimer from "./components/ReactionTimer.vue"; 
 </script>
 
 <template>
@@ -16,7 +17,8 @@ import ToDoList from "./components/ToDoList.vue";
   <!-- <HelloWorld msg="Vite + Vue" /> -->
 
   <!-- <Modal /> -->
-  <ToDoList />
+   <!-- <ToDoList /> -->
+   <ReactionTimer />
 </template>
 
 <style scoped>
