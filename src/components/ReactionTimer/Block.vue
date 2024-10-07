@@ -11,7 +11,7 @@ onMounted(() => {
 
     setTimeout(() => {
         showBlockRef.value= true;
-        console.log(showBlockRef);
+        console.log(props.delay);
     }, props.delay);
 })
 
@@ -22,7 +22,7 @@ onUpdated(() => {
 </script>
 
 <template>
-    <div class="block" v-if="showBlockRef.value">Click Me</div>
+    <div class="block" v-if="showBlockRef">Click Me</div>
 </template>
 
 <style scoped>
