@@ -1,15 +1,23 @@
 <script setup>
 import { ref, computed } from "vue";
 import Block from "./ReactionTimer/Block.vue";
+// import Results from "./ReactionTimer/Results.vue";
 
-let isPlaying = defineModel('isPlaying');
-let delay = defineModel('delay');
+let isPlaying = ref(false);
+let delay = ref(null);
+let score = ref(null);
+let showResults = ref(false);
 
 function start() {
-    this.delay = 2000 + Math.random() * 5000;
-    this.isPlaying = true;
-    // console.log(this.delay, this.isPlaying);
+    delay = 2000 + Math.random() * 5000;
+    isPlaying = true;
+    console.log(delay, isPlaying);
 }
+
+// function endGame(reactionTime) {
+//     score = reactionTime;
+//     isPlaying = false;
+// }
 
 </script>
 
@@ -18,7 +26,10 @@ function start() {
 
     <button class="btn" @click="start()" :disabled="isPlaying">Play</button>
 
-    <Block :if="isPlaying" :delay="delay" />
+    <Block v-if="isPlaying" :delay="delay" />
+
+    <p v-if="showResults">Reaction Time: {{ score }} ms</p>
+
 </template>
 
 
