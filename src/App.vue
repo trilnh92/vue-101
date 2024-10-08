@@ -2,26 +2,19 @@
 // import HelloWorld from "./components/HelloWorld.vue";
 // import Modal from "./components/Modal.vue";
 // import ToDoList from "./components/ToDoList.vue"; 
-import ReactionTimer from "./components/ReactionTimer.vue"; 
+// import ReactionTimer from "./components/ReactionTimer.vue"; 
+import Form from "./components/Form.vue";
 </script>
 
 <template>
-  <!-- <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div> -->
-  <!-- <HelloWorld msg="Vite + Vue" /> -->
-
   <!-- <Modal /> -->
-   <!-- <ToDoList /> -->
-   <ReactionTimer />
+  <!-- <ToDoList /> -->
+  <!-- <ReactionTimer /> -->
+  <Form />
 </template>
 
 <style scoped>
+
 .logo {
   height: 6em;
   padding: 1.5em;
